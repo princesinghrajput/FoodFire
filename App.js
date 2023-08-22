@@ -25,22 +25,61 @@
  * Transitive Dependencies
  */
 
-
 // imported react and reactdom from nodemodule folder
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-  const heading4=(
-    <h1 id='title'>Heading 3 </h1>
+//JSX Elements
+const heading = (
+  <h3 id="title" key="h3">
+    This is JSX heading
+  </h3>
+);
+
+//functional components
+const Heading =()=>{
+  return (
+    <h3 id="title" key="h3">
+      This is Heading Components under Test Components
+    </h3>
   );
+} 
 
+//Functional compoenets is a normal function
+//Name of compoennets starts with capital letters
+const HeaderComponent = () => {
+  return <h1>Namaste Javascript from Header components</h1>;
+};
 
-  //Name of compoennets starts with capital letters
-  const HeaderComponent=()=>{
-   return  <h1>Namaste Javascript</h1>
-  };
-  
-  // create root using createRoot
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  // passing react element inside root
-  root.render(HeaderComponent);
+const TestComponent = ()=>{
+  return (
+    <div>
+      <h1>This is a Test COmpoenents</h1>
+      {heading} 
+      <Heading/>
+
+    </div>
+  )
+}
+// const TestComponent = () => {
+//   return (
+//     <div>
+//       {heading}
+//       <h1>This is a first heading</h1>
+//       <h1>This is a second heading</h1>
+//     </div>
+//   );
+// };
+
+//We can skip return in arrow function also
+// const TestComponentSecond = () => (
+//   <div>
+//     <h1>This is a first heading</h1>
+//     <h1>This is a second heading</h1>
+//   </div>
+// );
+
+// create root using createRoot
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// passing react element inside root
+root.render(<TestComponent/>);

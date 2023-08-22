@@ -2972,31 +2972,91 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
-const heading4 = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+//JSX Elements
+const heading = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
     id: "title",
-    children: "Heading 3 "
-}, void 0, false, {
+    children: "This is JSX heading"
+}, "h3", false, {
     fileName: "App.js",
     lineNumber: 34,
-    columnNumber: 5
+    columnNumber: 3
 }, undefined);
+//functional components
+const Heading = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+        id: "title",
+        children: "This is Heading Components under Test Components"
+    }, "h3", false, {
+        fileName: "App.js",
+        lineNumber: 42,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Heading;
+//Functional compoenets is a normal function
 //Name of compoennets starts with capital letters
 const HeaderComponent = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-        children: "Namaste Javascript"
+        children: "Namaste Javascript from Header components"
     }, void 0, false, {
         fileName: "App.js",
-        lineNumber: 40,
-        columnNumber: 12
+        lineNumber: 51,
+        columnNumber: 10
     }, undefined);
 };
-_c = HeaderComponent;
+_c1 = HeaderComponent;
+const TestComponent = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "This is a Test COmpoenents"
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 57,
+                columnNumber: 7
+            }, undefined),
+            heading,
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Heading, {}, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 59,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "App.js",
+        lineNumber: 56,
+        columnNumber: 5
+    }, undefined);
+};
+_c2 = TestComponent;
+// const TestComponent = () => {
+//   return (
+//     <div>
+//       {heading}
+//       <h1>This is a first heading</h1>
+//       <h1>This is a second heading</h1>
+//     </div>
+//   );
+// };
+//We can skip return in arrow function also
+// const TestComponentSecond = () => (
+//   <div>
+//     <h1>This is a first heading</h1>
+//     <h1>This is a second heading</h1>
+//   </div>
+// );
 // create root using createRoot
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 // passing react element inside root
-root.render(HeaderComponent);
-var _c;
-$RefreshReg$(_c, "HeaderComponent");
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(TestComponent, {}, void 0, false, {
+    fileName: "App.js",
+    lineNumber: 85,
+    columnNumber: 13
+}, undefined));
+var _c, _c1, _c2;
+$RefreshReg$(_c, "Heading");
+$RefreshReg$(_c1, "HeaderComponent");
+$RefreshReg$(_c2, "TestComponent");
 
   $parcel$ReactRefreshHelpers$c1db.postlude(module);
 } finally {
