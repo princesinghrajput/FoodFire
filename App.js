@@ -1,85 +1,77 @@
 // ## Namaste React Course by Akshay Saini
-// # Chapter 02 - Igniting our App
+// # Chapter 07 - Finding the Path
 
-/*
- *** Parcel Feature ***
- * Created A Server
- * HMR - Hot Module Replacement
- * File Watcher algorithm - C++ (Execute File when changes occur)
- * BUNDLING
- * MINIFY
- * Cleaning our Code (Example - Remove Console.log)
- * Dev and Production Build
- * Super Fast build algorithm
- * Image Optimization
- * Caching while development
- * Compression
- * Compatible with older version of browser
- * HTTPS on dev [Example - npx parcel index.html --https]
- * Port Number [Example - If port number using in localhost then it will change in port number in another project running on localhost]
- * Consistent Hashing Algorithm
- * Zero Config
- * Tree shaking
- *
- *
- * Transitive Dependencies
- */
-
-// imported react and reactdom from nodemodule folder
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./src/Components/Header";
+import Body from "./src/Components/Body";
+import Footer from "./src/Components/Footer";
+import About from "./src/Components/About";
+import Error from "./src/Components/Error";
+import Contact from "./src/Components/Contact";
+import Login from "./src/Components/Login";
+import RestaurantMenu from "./src/Components/RestaurantMenu";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 
-//JSX Elements
-const heading = (
-  <h3 id="title" key="h3">
-    This is JSX heading
-  </h3>
-);
+/* My Food App structure will look like this, 
+            1) Header
+                - Logo
+                - Nav Items(right side)
+                - Cart
+            2) Body
+                - Search bar
+                - Restaurants List
+                    - Restaurant card
+                        - Image
+                        - Name
+                        - Rating
+            3) Footer
+                - Links
+                - Copyrights
+       
+*/
 
-//functional components
-const Heading =()=>{
+// AppLayout component to render: Header, Outlet(it contain children component like body, About, Restaurant Menu etc) and Footer Component
+const AppLayout = () => {
   return (
-    <h3 id="title" key="h3">
-      This is Heading Components under Test Components
-    </h3>
+    <React.Fragment>
+      <Header />
+      <Outlet />
+      <Footer />
+    </React.Fragment>
   );
-} 
-
-//Functional compoenets is a normal function
-//Name of compoennets starts with capital letters
-const HeaderComponent = () => {
-  return <h1>Namaste Javascript from Header components</h1>;
 };
 
-const TestComponent = ()=>{
-  return (
-    <div>
-      <h1>This is a Test COmpoenents</h1>
-      {heading} 
-      <Heading/>
-
-    </div>
-  )
-}
-// const TestComponent = () => {
-//   return (
-//     <div>
-//       {heading}
-//       <h1>This is a first heading</h1>
-//       <h1>This is a second heading</h1>
-//     </div>
-//   );
-// };
-
-//We can skip return in arrow function also
-// const TestComponentSecond = () => (
-//   <div>
-//     <h1>This is a first heading</h1>
-//     <h1>This is a second heading</h1>
-//   </div>
-// );
-
-// create root using createRoot
+// call createBrowserRouter for routing different pages
+const appRouter = createBrowserRouter([
+  {
+    path: "/", // show path for routing
+    element: <AppLayout />, // show component for particular path
+    errorElement: <Error />, // show error component for path is different
+    children: [
+      // show children component for routing
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// passing react element inside root
-root.render(<TestComponent/>);
+root.render(<RouterProvider router={appRouter} />); // render RouterProvider and use router as props and pass value appRouter
