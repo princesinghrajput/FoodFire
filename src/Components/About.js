@@ -1,5 +1,6 @@
 import food from "../Images/burger-image.png";
-
+import { Outlet } from "react-router-dom";
+import Profile from "./Profile";
 const About = () => {
   return (
     <div className="about-container">
@@ -14,6 +15,7 @@ const About = () => {
       <div className="about-right">
         <img src={food} alt="Food Image" />
       </div>
+      <Outlet />
     </div>
   );
 };

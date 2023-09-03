@@ -1,7 +1,7 @@
 // ## Namaste React Course by Akshay Saini
 // # Chapter 07 - Finding the Path
 
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/Components/Header";
 import Body from "./src/Components/Body";
@@ -12,6 +12,7 @@ import Contact from "./src/Components/Contact";
 import Login from "./src/Components/Login";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
+import Profile from "./src/Components/Profile";
 
 /* My Food App structure will look like this, 
             1) Header
@@ -57,7 +58,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
+
       {
         path: "/contact",
         element: <Contact />,
