@@ -4,7 +4,7 @@ const Footer = () => {
     <div className="footer">
       Created By
       <i className="fa-solid fa-heart"></i>
-      <a href="#" target="_blank" title="">
+      <a href="/" target="_blank" title="">
         Prince Singh Rajput
       </a>
       <i className="fa-solid fa-copyright"></i>2023

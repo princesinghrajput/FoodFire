@@ -1,8 +1,9 @@
 ## Namaste React Course by Akshay Saini
+
 # Chapter 07 - Finding the Path
 
-
 ## Coding Assignment:
+
 - Add `Shimmer Effect` without installing a library.
 - Install `react-router-dom`.
 - Create an `appRouter` and Provide it to the app.
@@ -11,4 +12,4 @@
 - Create a `Restaurant Page` with dynamic restaurant ID.
 - (Extra) - Create a `login Page` using `Formik Library`.
 
-
+## Created a FoodFire App from scratch using React.js and Parcel.js 🚀 [Live Project App Link 😍](coming Soon)

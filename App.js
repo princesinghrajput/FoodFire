@@ -12,7 +12,7 @@ import Contact from "./src/Components/Contact";
 import Login from "./src/Components/Login";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
-import Profile from "./src/Components/Profile";
+import Profile from "./src/Components/ProfileClass";
 
 /* My Food App structure will look like this, 
             1) Header

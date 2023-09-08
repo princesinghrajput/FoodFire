@@ -35,9 +35,10 @@ const Body = () => {
       // initialize checkJsonData() function to check Swiggy Restaurant data
       async function checkJsonData(jsonData) {
         for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-
           // initialize checkData for Swiggy Restaurant data
-          let checkData = json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
 
           // if checkData is not undefined then return it
           if (checkData !== undefined) {
@@ -64,7 +65,9 @@ const Body = () => {
       setFilteredRestaurants(filteredData);
       setErrorMessage("");
       if (filteredData?.length === 0) {
-        setErrorMessage(`Sorry, we couldn't find any results for "${searchText}"`);
+        setErrorMessage(
+          `Sorry, we couldn't find any results for "${searchText}"`
+        );
       }
     } else {
       setErrorMessage("");
